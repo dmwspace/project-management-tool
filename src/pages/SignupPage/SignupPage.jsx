@@ -20,7 +20,6 @@ export default function SignupPage({ handleSignUpOrLogin }) {
         setState({
             ...state, [e.target.name]: e.target.value,
         });
-        console.log('state from SignupPage', state)
     }
 
     async function handleSubmit(e) {
@@ -29,7 +28,7 @@ export default function SignupPage({ handleSignUpOrLogin }) {
         try {
             await userService.signup(state)
             handleSignUpOrLogin();
-            navigate
+            navigate("/")
             console.log('state from handleSubmit: ', state)
         } catch(err) {
             console.log(err.message, ' <-this comes from the throw in utils/signup')

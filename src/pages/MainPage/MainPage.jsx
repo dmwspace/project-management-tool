@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from '../../components/Header/Header'
 
-export default function MainPage() {
+export default function MainPage({ user, handleLogout }) {
     return (
-        <h1>This is the main page.</h1>
+        <Header user={user}/>
     )
     
 }

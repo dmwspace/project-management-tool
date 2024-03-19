@@ -13,6 +13,7 @@ function signup(user) {
     if (res.ok) return res.json();
     // Probably a duplicate email
     throw new Error('Email already taken!');
+    console.log('user: ', user)
   })
   // Parameter destructuring!
   .then(({token}) => tokenService.setToken(token));
@@ -40,6 +41,7 @@ function login(creds) {
     throw new Error('Bad Credentials!');
   })
   .then(({token}) => tokenService.setToken(token));
+
 }
 
 export default {
