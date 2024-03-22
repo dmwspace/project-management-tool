@@ -1,17 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { Navbar, Container} from 'react-bootstrap'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import CreateProject from '../CreateProject/CreateProject';
 
-export default function Header({ user, handleLogout, showCreateProject, setShowCreateProject }) {
-    console.log('user: ', user)
+export default function Header({user, handleLogout, showCreateProject, setShowCreateProject }) {
+    //console.log('user: ', user)
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        setShowCreateProject(true)
-    }
-    console.log('showCreateProject: ', showCreateProject)
+    // function handleSubmit(e) {
+    //     e.preventDefault()
+    //     setShowCreateProject(true)
+    //}
+    //console.log('showCreateProject: ', showCreateProject)
 
     return (
         <>
@@ -22,12 +22,11 @@ export default function Header({ user, handleLogout, showCreateProject, setShowC
                         className="bg-dark-subtle text-dark"                    
                         size="lg"
                         type="submit"
-                        onClick={handleSubmit}    
+                        //onClick={handleSubmit}    
                     ><Link to="/create">Create Project</Link></Navbar.Brand>
                     <Navbar.Brand><Link to="/login" onClick={handleLogout}>Logout</Link></Navbar.Brand>
                 </Container>  
             </Navbar>
-            {showCreateProject && <Outlet />}
         </>
 
     )

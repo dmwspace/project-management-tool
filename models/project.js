@@ -1,20 +1,17 @@
 const mongoose = require('mongoose');
 
-const tasksSchema = mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
-    content: String,
-})
 
-const listsSchema = mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+
+const listSchema = mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     title: String,
-    tasks: [tasksSchema],
+    tasks: { type: mongoose.Schema.Types.ObjectId, ref: "Task" },
 })
 
 const projectSchema = mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
     title: String,
-    lists: [listsSchema],
+    lists: [listSchema],
 })
 
 module.exports = mongoose.model("Project", projectSchema);
