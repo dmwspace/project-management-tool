@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(require("./config/auth"));
 // api routes must be before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
-app.use("/api/projects", require("./routes/api/more"))
+app.use("/api/projects", require("./routes/api/projects"))
 
 // "catch all" route
 if(process.env.IS_PRODUCTION){
