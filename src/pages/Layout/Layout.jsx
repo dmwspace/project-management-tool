@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { Container, Col, Row } from 'react-bootstrap';
 
-export default function Layout({ user, handleLogout, projects }) {
+export default function Layout({ user, handleLogout}) {
     
     return (
         <>
@@ -15,7 +15,7 @@ export default function Layout({ user, handleLogout, projects }) {
         <Container className="grid text-center bg-dark-subtle">
             <Row className="grid bs-columns: 5">
                 <Col className="g-col-1">
-                    <Sidebar projects={projects}/>
+                    <Sidebar />
                 </Col>
                 <Col className="g-col-4">
                     <Outlet />

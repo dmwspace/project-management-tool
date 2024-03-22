@@ -5,7 +5,7 @@ import { useOutletContext } from 'react-router-dom';
 import { CDBContainer, CDBCard, CDBInput, CDBBtn, CDBCardBody} from 'cdbreact'
 import tokenService from '../../utils/tokenService';
 
-export default function CreateProject({ projects, setProjects }) {
+export default function CreateProject({ projects, setProjects}) {
     const navigate = useNavigate()
     const [projectTitle, setProjectTitle] = useState("");
     const [error, setError] = useState("");
@@ -27,7 +27,6 @@ export default function CreateProject({ projects, setProjects }) {
                 }
             })
             const data = await response.json()
-            setProjects([...projects, data])
             navigate(`/${data._id}`)
             console.log(data)
         } catch(err) {

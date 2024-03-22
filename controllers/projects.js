@@ -20,7 +20,7 @@ async function index(req, res) {
     try {
         const projectModel = await ProjectModel.find({user: req.user})
         console.log('projectModel: ', projectModel)
-        res.status(200).json
+        res.status(200).json({projectModel})
     } catch(err) {
         res.json({error: err})
     }
