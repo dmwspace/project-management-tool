@@ -30,7 +30,7 @@ function Tasks(props) {
     return (
         <div>
             <h2>{props.category}</h2>
-            <ul>
+            <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
                 {filteredTasks.map((task) => (
                     <li key={task._id}>
                         {task.content}
