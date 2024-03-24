@@ -33,7 +33,7 @@ export default function CreateProject({ projects, setProjects}) {
             console.log(err)
         }
     }
-    console.log('projectTitle: ', projectTitle)
+    
     return (
         <CDBContainer>
             <CDBCard className="m-3">

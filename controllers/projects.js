@@ -2,7 +2,9 @@ const ProjectModel = require('../models/project')
 
 module.exports = {
     create,
-    index
+    index,
+    show,
+    deleteOneProject
 }
 
 async function create(req, res) {
@@ -23,5 +25,26 @@ async function index(req, res) {
         res.status(200).json({projectModel})
     } catch(err) {
         res.json({error: err})
+    }
+}
+
+async function show(req, res) {
+    try {
+        const projectToDisplay = await ProjectModel.findOne({_id: req.params.id})
+        //console.log('projectToDisplay in controller show method: ', projectToDisplay)
+        res.json(projectToDisplay)
+    } catch(err) {
+        console.log(err)
+        res.send({err})
+    }
+}
+
+async function deleteOneProject(req, res) {
+    try {
+        const projectToDelete = await ProjectModel.findOneAndDelete({'_id': req.params.id})
+        res.json({projectModel})
+    } catch(err) {
+        console.log(err)
+        res.json({err})
     }
 }

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CreateProject from './components/CreateProject/CreateProject';
 import Layout from './pages/Layout/Layout';
 import tokenService from './utils/tokenService';
-
+import Board from './components/Board/Board';
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
         <Route path="create" element={<CreateProject />} />
         <Route path="login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
         <Route path="signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
-        <Route path="/:projectId" element={<h1>project details</h1>} />
+        <Route path="/:projectId" element={<Board />} />
       </Route>
 
 
