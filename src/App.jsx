@@ -47,7 +47,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout handleLogout={logout} user={user}/>}>
-        <Route index element={<h1>All boards will go here as the same page</h1>}></Route>
+        <Route index element={<h1>No projects yet</h1>}></Route>
         <Route path="create" element={<CreateProject />} />
         <Route path="login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
         <Route path="signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />} />

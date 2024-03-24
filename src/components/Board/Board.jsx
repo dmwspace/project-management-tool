@@ -68,6 +68,7 @@ function NewTask(props) {
             props.setProject(data)
             setFormData({
                 content: '',
+                category: formData.category
             })
         } catch (err) {
             console.log(err)
