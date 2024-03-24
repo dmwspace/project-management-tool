@@ -28,7 +28,11 @@ export default function Sidebar() {
             })
             const data = await response.json()
             console.log('data from handleDeleteProject: ', data)
-            setProjects(ProjectModel)
+            const filteredProjects = projects.filter((project) => (
+                project._id !== data.projectToDelete._id
+            ))
+            setProjects(filteredProjects)
+            navigate('/')
         } catch(error) {
             console.log(error)
         }
@@ -59,11 +63,11 @@ export default function Sidebar() {
         console.log('projects in useEffect: ', projects)
       }, [location.pathname])
 
-    const projectList = projects.map((project, index) => {
+    const projectList = projects.length ? projects.map((project, index) => {
         //console.log('projects in projectList.map: ', projects)
         return (
-            <tbody>
-                <td><Link to={project._id}><h4 key={index}>{project.title}</h4></Link> </td>
+            <tr key={index}>
+                <td><Link to={project._id}><h4>{project.title}</h4></Link> </td>
                 <td>
                     <CDBBtn 
                         type="submit"
@@ -72,18 +76,24 @@ export default function Sidebar() {
                         value={project._id}
                     >X</CDBBtn>
                 </td>
-            </tbody>
+            </tr>
 
         )
         
         
-    })
+    }) : []
 
     return (
         <div style={{ height: '100vh'}}>
             <CDBSidebar className='bg-dark'>
                 <CDBSidebarHeader>Your Projects</CDBSidebarHeader>
-                <CDBSidebarContent>{projectList}</CDBSidebarContent>
+                <CDBSidebarContent>
+                    <table>
+                        <tbody>
+                            {projectList}
+                        </tbody>
+                    </table>
+                </CDBSidebarContent>
             </CDBSidebar>
         </div>
     )
