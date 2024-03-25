@@ -1,40 +1,44 @@
 
-## Setup 
+# Project Management App
 
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv Mern-Vite-Boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls -a` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+This app, located [here](https://project-management-tool-un94.onrender.com/) allows the user to login, create projects, add tasks to lists within the project, and move the tasks from the Planned list to the In Progress list, and from the In Progress list to the Complete list.
 
+#### Screenshots
 
-#### Setup your git repo
+Enter new project:
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2.  Then follow the directions on github that says ```…or create a new repository on the command line```
+![Enter new project](https://i.imgur.com/6At23Ww.png)
 
-it should look like this
+Project entered:
 
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be
-git push -u origin main
-```
+![Project entered](https://i.imgur.com/askhFXs.png)
 
-#### Setup the App
+Tasks entered, one complete:
 
-```npm install```
+![Tasks entered, one complete](https://i.imgur.com/dGkz1ZC.png)
 
-*DOTENV*
+Another Project:
 
-`touch .env`
+![Another Project](https://i.imgur.com/oEedxMv.png)
 
-add your variables
+#### Technologies Used
 
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
+- HTML
+- CSS
+- Javascript
+- Javascript Web Token
+- ReactJS
+- NodeJS
+- ExpressJS
+- MongooseJS
+- MongoDB
+- Bootstrap
 
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
+#### Getting Started
+
+The app is deployed [here](https://project-management-tool-un94.onrender.com/login)
+The Trello board used to plan this project is [here](https://trello.com/b/t8iBeBgO/project-management-tool)
+
+#### Next Steps
+
+Some planned future enhancements include: the ability to drag and drop tasks from one list to another, the ability to share a project with other users and to make a project public. Better styling and the ability to use the app on mobile devices is another planned enhancement as is giving the user the ability to create and name the lists.
