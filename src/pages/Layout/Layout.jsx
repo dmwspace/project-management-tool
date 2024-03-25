@@ -5,23 +5,36 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { Container, Col, Row } from 'react-bootstrap';
 
 export default function Layout({ user, handleLogout}) {
-    
+
     return (
-        <>
-        <Header 
-            user={user} 
-            handleLogout={handleLogout}
-        />
-        <Container className="grid text-center bg-dark-subtle">
-            <Row className="grid bs-columns: 5">
-                <Col className="g-col-1">
-                    <Sidebar />
-                </Col>
-                <Col className="g-col-4">
-                    <Outlet />
-                </Col>
-            </Row> 
-        </Container>  
-    </>
+        <div>
+            <Header 
+                user={user} 
+                handleLogout={handleLogout}
+            />
+            <div style={{display: 'flex'}}>
+                <Sidebar />
+                <Outlet />
+            </div>
+        </div>
     )
 }
+//     return (
+//         <>
+//         <Header 
+//             user={user} 
+//             handleLogout={handleLogout}
+//         />
+//         <Container className="grid text-center bg-dark-subtle">
+//             <Row>
+//                 <Col>
+//                     <Sidebar />
+//                 </Col>
+//                 <Col className="g-col-4">
+//                     <Outlet />
+//                 </Col>
+//             </Row> 
+//         </Container>  
+//     </>
+//     )
+// }

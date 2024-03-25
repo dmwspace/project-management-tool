@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import tokenService from '../../utils/tokenService'
+import { GoArrowRight } from "react-icons/go"
+import { Form, Button } from 'react-bootstrap'
 
 function Tasks(props) {
     const filteredTasks = props.project.tasks.filter((task) => {
@@ -28,20 +30,18 @@ function Tasks(props) {
     }
 
     return (
-        <div>
+        <div style={{width: '100%'}}>
             <h2>{props.category}</h2>
-            <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
+            <ul style={{width: '33%'}}>
                 {filteredTasks.map((task) => (
-                    <li key={task._id}>
+                    <li key={task._id} style={{fontSize: '15px'}}>
                         {task.content}
                         {props.category !== 'Complete' &&
-                            <button onClick={() => { handleUpdate(task._id) }}>Update task</button>
-
+                            <Button onClick={() => { handleUpdate(task._id) }} title="move"><GoArrowRight /></Button>
                         }
                     </li>
                 ))}
             </ul>
-
         </div>
     )
 }
@@ -83,22 +83,23 @@ function NewTask(props) {
     }
     console.log(formData)
     return (
-        <form onSubmit={handleSubmit}>
-            <input
+        <Form onSubmit={handleSubmit} style={{width: '40%'}}>
+            <Form.Control
+                type="text"
                 name="content"
                 value={formData.content}
-                placeholder='Content'
+                placeholder='Enter Task'
                 onChange={handleChange}
             />
-            <select name="category" onChange={handleChange}>
+            <Form.Select name="category" onChange={handleChange}>
                 <option value='Planned'>Planned</option>
                 <option value='In Progress'>In Progress</option>
                 <option value='Complete'>Complete</option>
-            </select>
-            <button type='submit'>
+            </Form.Select>
+            <Button type='submit'>
                 Submit
-            </button>
-        </form>
+            </Button>
+        </Form>
     )
 }
 
@@ -135,9 +136,12 @@ export default function Board() {
     if (!project) return <h1>Loading</h1>
 
     return (
-        <div>
-            <h1>{project.title}</h1>
+        <div style={{width: '100%', alignItems: 'center'}}>
+            <div style={{marginLeft: '30%'}}>
+                <h1>{project.title}</h1>
                 <NewTask projectId={projectId} setProject={setProject} />
+            </div>
+
             <section>
                 <Tasks project={project} projectId={projectId} category="Planned" setProject={setProject} />
                 <Tasks project={project} projectId={projectId} category="In Progress" setProject={setProject} />

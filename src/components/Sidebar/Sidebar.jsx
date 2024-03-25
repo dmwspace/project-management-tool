@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import tokenService from '../../utils/tokenService';
+
 import { 
     CDBSidebar,
     CDBSidebarHeader,
@@ -74,27 +75,31 @@ export default function Sidebar() {
                         onClick={handleDeleteProject}
                         title="delete"
                         value={project._id}
-                    >X</CDBBtn>
+                    >x</CDBBtn>
                 </td>
             </tr>
-
-        )
-        
-        
+        )     
     }) : []
 
-    return (
-        <div style={{ height: '100vh'}}>
-            <CDBSidebar className='bg-dark'>
-                <CDBSidebarHeader>Your Projects</CDBSidebarHeader>
-                <CDBSidebarContent>
-                    <table>
-                        <tbody>
-                            {projectList}
-                        </tbody>
-                    </table>
-                </CDBSidebarContent>
-            </CDBSidebar>
-        </div>
-    )
+        return (
+            <div style={{ height: '100vh', width: '300px', backgroundColor: 'black', color: 'white', margin: '10px'}}>
+                <h3>Your projects</h3>
+                {projectList}
+            </div>
+        )
+
+    // return (
+    //     <div style={{ display: 'grid', height: '100vh'}}>
+    //         <CDBSidebar className='bg-dark' style={{width: '50px'}}>
+    //             <CDBSidebarHeader>Your Projects</CDBSidebarHeader>
+    //             <CDBSidebarContent>
+    //                 <table style={{marginLeft: '10px'}}>
+    //                     <tbody>
+    //                         {projectList}
+    //                     </tbody>
+    //                 </table>
+    //             </CDBSidebarContent>
+    //         </CDBSidebar>
+    //     </div>
+    // )
 }

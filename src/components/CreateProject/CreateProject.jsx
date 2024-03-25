@@ -35,7 +35,7 @@ export default function CreateProject({ projects, setProjects}) {
     }
     
     return (
-        <CDBContainer>
+        <CDBContainer style={{width: '30%'}}>
             <CDBCard className="m-3">
                 <CDBCardBody className="mx-4">
                     <div className="text-center m-3" >
